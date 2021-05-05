@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../css/ProductOnCart.css";
 import ColorPicker from "./ColorPicker";
+import { Trash2, PlusCircle, MinusCircle } from "react-feather";
 const ProductOnCart = (props) => {
     const image = props.item.colors.find((ele) => ele.code === props.item.selectedColor).image;
     const [quantity, setQuantity] = useState(props.item.quantity);
@@ -32,14 +33,19 @@ const ProductOnCart = (props) => {
                     <div className="product_price__price">{props.item.price}đ</div>
                     <div className="product_price__quantity">
                         Số lượng:
-                        <button onClick={handleMinus}>-</button>
+                        <MinusCircle className="btn" onClick={handleMinus} />
+                        {/* <button onClick={handleMinus}>-</button> */}
                         <span>{quantity}</span>
-                        <button onClick={handlePlus}>+</button>
+                        <PlusCircle className="btn" onClick={handlePlus} />
+                        {/* <button onClick={handlePlus}>+</button> */}
                     </div>
                 </div>
-                <button onClick={() => {
+                {/* <button onClick={() => {
                     props.onRemove(props.item.id)
-                }}>Xóa</button>
+                }}>Xóa</button> */}
+                <Trash2 className="btn" onClick={() => {
+                    props.onRemove(props.item.id)
+                }} />
             </div>
         </div>
     )

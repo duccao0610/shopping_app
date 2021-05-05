@@ -1,4 +1,4 @@
-import { ShoppingBag } from "react-feather";
+import { ShoppingBag, XSquare } from "react-feather";
 import { useState } from "react";
 import "../css/Cart.css";
 import ProductOnCart from "./ProductOnCart";
@@ -25,12 +25,16 @@ const Cart = (props) => {
             {cartVisible ?
                 (<div className="side">
                     <div className="side__title">Your Cart
-                        <button
+                        {/* <button
                             className="btn_close"
                             type="button"
                             onClick={handleViewCart}
                         >X
-                        </button>
+                        </button> */}
+                        <XSquare
+                            className="btn_close"
+                            onClick={handleViewCart}
+                        />
                     </div>
                     <div className="side__item_list">
                         {props.onCart.map((item, index) => {

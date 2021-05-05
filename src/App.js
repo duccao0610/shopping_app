@@ -3,6 +3,9 @@ import Banner from './components/Banner';
 import Category from './components/Category';
 import NavBar from './components/NavBar';
 import { useState } from "react";
+import Footer from './components/Footer';
+import products from "./data.json";
+
 
 const App = () => {
   const categories = ["men", "women", "boy", "girl"];
@@ -53,19 +56,38 @@ const App = () => {
     setOnCart(updateRemoveOnCart);
   }
 
+  const [keyword, setKeyword] = useState("");
+  const bannerVisible = (keyword === "" ? true : false);
+  const handleSearch = (keyword) => {
+    setKeyword(keyword);
+  };
+
   return (
     <div className="App">
-      <NavBar handleRemove={handleRemove} onCart={onCart} onCartUpdate={handleCartUpdate} onCartColorChange={handleColorChangeOnCart} />
-      <Banner />
+      <NavBar
+        handleSearch={handleSearch}
+        handleRemove={handleRemove}
+        onCart={onCart}
+        onCartUpdate={handleCartUpdate}
+        onCartColorChange={handleColorChangeOnCart} />
+      {bannerVisible ? <Banner /> : null}
       <div className="category_list">
         {categories.map((category) => {
           return <Category
-            key={category}
+            keyword={keyword}
+            list={products.filter(
+              (product) => product.category === category &&
+                (product.name.toUpperCase().includes(keyword.toUpperCase()) ||
+                  product.code.includes(keyword.toUpperCase())
+                )
+            )}
+            key={category + new Date().getTime()}
             onCart={onCart}
             addToCart={handleAddToCart}
             title={category} />
         })}
       </div>
+      <Footer />
     </div>
   );
 }

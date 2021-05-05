@@ -1,6 +1,5 @@
 import "../css/ColorPicker.css";
 const ColorPicker = (props) => {
-
     return (
         <div className="color_list">
             {props.colors.map((color, index) => {
@@ -15,7 +14,7 @@ const ColorPicker = (props) => {
                         }
                     }}
                     style={{ background: color.code }}
-                    key={index + new Date()}>
+                    key={index + new Date().getTime()}>
                 </div>
             })}
         </div>

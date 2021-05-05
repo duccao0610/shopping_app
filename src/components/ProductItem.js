@@ -2,9 +2,10 @@ import { useState } from "react";
 import ColorPicker from "./ColorPicker";
 import "../css/ProductItem.css";
 const ProductItem = (props) => {
+    const [btnAddVisible, setBtnAddVisible] = useState(false);
     const [selectedColor, setSelectedColor] = useState(props.item.colors[0].code);
     const productImage = props.item.colors.find((ele) => ele.code === selectedColor).image;
-    const [btnAddVisible, setBtnAddVisible] = useState(false);
+
     const handlePick = (code) => {
         setSelectedColor(code);
     }

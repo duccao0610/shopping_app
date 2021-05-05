@@ -8,7 +8,7 @@ const NavBar = (props) => {
         <div className="nav_bar">
             <div className="nav_bar__logo"> 360 Boutique</div>
             <div className="nav_bar__rightside">
-                <SearchForm />
+                <SearchForm handleSearch={props.handleSearch} />
                 <Cart
                     handleRemove={props.handleRemove}
                     onCart={props.onCart}
