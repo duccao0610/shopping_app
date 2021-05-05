@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+.nav_bar{
+    background: #ead3cb;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 1px 1px 5px 0 rgba(0, 0, 0, 0.5);
+    padding:  1rem  0.25rem;
+}
+
+.nav_bar__rightside{
+    display: flex;
+    align-items: baseline;
+    gap: .5rem;
+}
+
+.nav_bar__logo{
+    font-family: 'Italianno', cursive;
+    font-size: 3rem;
+    font-weight: 500;
+    cursor: pointer;
+}
