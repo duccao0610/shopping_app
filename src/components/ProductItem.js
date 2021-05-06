@@ -10,10 +10,10 @@ const ProductItem = (props) => {
         setSelectedColor(code);
     }
     const handleMouseEnter = () => {
-        setBtnAddVisible((prev) => !prev);
+        setBtnAddVisible(true);
     };
     const handleMouseLeave = () => {
-        setBtnAddVisible((prev) => !prev);
+        setBtnAddVisible(false);
     };
 
     const handleOnClick = () => {
@@ -42,7 +42,7 @@ const ProductItem = (props) => {
             <div className="product_item__code">{props.item.code}</div>
             <div className="product_item__price">{props.item.price}đ</div>
             {btnAddVisible ? (
-                <button onClick={handleOnClick} className="btn_add">
+                <button onClick={handleOnClick} className="btn_add" type="button">
                     + Thêm vào giỏ hàng
                 </button>
             ) : null}

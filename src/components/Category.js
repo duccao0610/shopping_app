@@ -10,7 +10,7 @@ const Category = (props) => {
                         <ProductItem
                             onCart={props.onCart}
                             addToCart={props.addToCart}
-                            key={index + new Date().getTime()}
+                            key={item.code + new Date().getTime()}
                             item={item}
                         />
                     )
